@@ -8,12 +8,12 @@
 #include <sstream>
 using namespace std;
 
-class ENCS {
+class Major {
  public:
     vector<Course> listOfClasses;
     string fileName;
  public:
-    ENCS(string f);
+    Major(string f);
     void ReadFile();
     const void PrintFile();
 };

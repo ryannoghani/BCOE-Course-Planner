@@ -1,10 +1,10 @@
-#include "ENCS.h"
+#include "Major.h"
 
-ENCS::ENCS(string f) {
+Major::Major(string f) {
     fileName = f;
 }
 
-void ENCS::ReadFile() {
+void Major::ReadFile() {
     string line;
     string tempName;
     string tempPrereqs;
@@ -33,7 +33,7 @@ void ENCS::ReadFile() {
     }
 }
 
-const void ENCS::PrintFile() {
+const void Major::PrintFile() {
     for(unsigned i = 0; i < listOfClasses.size(); ++i) {
         cout << listOfClasses.at(i).getName() << ": ";
         if(listOfClasses.at(i).getSize() == 1) {
