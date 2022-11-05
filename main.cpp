@@ -2,15 +2,24 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include "course_names.txt"
 using namespace std;
 
 
 
 bool is_a_course(const string&);
+void prereqChecker(const string&, const vector<string>&, vector<string>&);
 
 
 int main() {
+
+    string major;
+    string courseListFile = "";
+    cout << "Choose your major: ";
+    cin >> major;
+    if (major == "ENCS") {
+        courseListFile = "ENCS.txt";
+    }
+
     string course = "";
     vector<string> takenCourses;
     cout << "Enter any courses you have credit for. Type \"done\" when all the courses are entered\n" << endl;
@@ -26,6 +35,12 @@ int main() {
     }
 
 
+    vector<string> prereq_satisfied_course_list;
+    prereqChecker(courseListFile, takenCourses, prereq_satisfied_course_list);
+
+
+
+    
     return 0;
 }
 
@@ -46,7 +61,17 @@ bool is_a_course(const string& userInput) {
             return true;
         }
     }
+    inFS.close();
+
     return false;
+}
+
+
+
+void prereqChecker(const string& fileName, const vector<string> takenCourseList, vector<string>& newCourseList) {
+
+
+
 
 
 }
